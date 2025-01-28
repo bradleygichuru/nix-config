@@ -40,6 +40,8 @@
     pkgs.spotifyd
     pkgs.tmux
     pkgs.ungoogled-chromium
+    pkgs.neofetch
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -78,5 +80,17 @@
   };
 
   # Let Home Manager install and manage itself.
+ services.spotifyd = {
+   enable = true;
+   settings =
+     {
+       global = {
+         username = "33blab25004yylwe90s1v1fww";
+         password = "SIkFDPvKMXC81c";
+       };
+     };
+ };
   programs.home-manager.enable = true;
+  programs.zsh.enable = true;
+
 }
