@@ -41,6 +41,7 @@
     pkgs.tmux
     pkgs.ungoogled-chromium
     pkgs.neofetch
+    pkgs.mariadb
 
   ];
 
