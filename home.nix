@@ -35,14 +35,18 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.neovim 
+    pkgs.spotify
     pkgs.gcc pkgs.ripgrep pkgs.fd  pkgs.unzip
-    pkgs.zsh pkgs.ghostty
+    pkgs.zsh 
     pkgs.spotifyd
     pkgs.tmux
     pkgs.ungoogled-chromium
     pkgs.neofetch
-    pkgs.mariadb
+    pkgs.obsidian
+    pkgs.discord-ptb
 
+    #pkgs.spotify-tui
+    #pkgs.mariadb
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -93,5 +97,23 @@
  };
   programs.home-manager.enable = true;
   programs.zsh.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+
+  };
+   programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
+
 
 }
+
